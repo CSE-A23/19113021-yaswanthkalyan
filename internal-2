@@ -14,37 +14,66 @@ This ambiguity due to multiple paths is avoided .
 This can be avoided by making common base class.
 Here only one copy of that class is inherited
 
+4)
+
 5)
 b.catch(Test t)
 
     PART-B
  6)
- #include <iostream>
- class Cents
-{
-private:
-	int m_cents;
- 
+ Overloading binary arthematic operator
+     #include<iostream.h>
+     #include<conio.h>
+
+    class complex {
+    int a, b;
 public:
-	Cents(int cents) { m_cents = cents; }
- 	friend Cents operator+(const Cents &c1, const Cents &c2);
- 
-	int getCents() const { return m_cents; }
+
+    void getvalue() {
+        cout << "Enter the value of Complex Numbers a,b:";
+        cin >> a>>b;
+    }
+
+    complex operator+(complex ob) {
+        complex t;
+        t.a = a + ob.a;
+        t.b = b + ob.b;
+        return (t);
+    }
+
+    complex operator-(complex ob) {
+        complex t;
+        t.a = a - ob.a;
+        t.b = b - ob.b;
+        return (t);
+    }
+
+    void display() {
+        cout << a << "+" << b << "i" << "\n";
+    }
 };
- Cents operator+(const Cents &c1, const Cents &c2)
-{
-	return Cents(c1.m_cents + c2.m_cents);
+
+    void main() {
+    clrscr();
+    complex obj1, obj2, result, result1;
+
+    obj1.getvalue();
+    obj2.getvalue();
+
+    result = obj1 + obj2;
+    result1 = obj1 - obj2;
+
+    cout << "Input Values:\n";
+    obj1.display();
+    obj2.display();
+
+    cout << "Result:";
+    result.display();
+    result1.display();
+
+    getch();
 }
- 
-int main()
-{
-	Cents cents1(6);
-	Cents cents2(8);
-	Cents centsSum = cents1 + cents2;
-	std::cout << "I have " << centsSum.getCents() << " cents." << std::endl;
- 
-	return 0;
-}
+
  
  7)
 When there are multiple functions with same name but different parameters then these functions are said to be overloaded. Functions can be overloaded by change in number of arguments or/and change in type of arguments.
