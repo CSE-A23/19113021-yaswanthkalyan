@@ -1,11 +1,8 @@
           PART-A 
-   1)Some of the operators cannot be overloaded. These operators are like below
-? “.” Member access or dot operator
-? “? : ” Ternary or conditional operator
-? “::” Scope resolution operator
-? “.*” Pointer to member operator
-? “sizeof” The object size operator
-? “typeid” Object type operator
+   1)1. sizeof (object size information)
+    2.typeid (object type information)
+    3.static_cast 
+    4.dot operator(.)
 
 2)
 c. Compiler Error in line ” Derived *dp = new Base;”
