@@ -1,0 +1,144 @@
+          PART-A 
+   1)Some of the operators cannot be overloaded. These operators are like below
+? “.” Member access or dot operator
+? “? : ” Ternary or conditional operator
+? “::” Scope resolution operator
+? “.*” Pointer to member operator
+? “sizeof” The object size operator
+? “typeid” Object type operator
+
+2)
+c. Compiler Error in line ” Derived *dp = new Base;”
+
+3)
+Derevation of a class from other derived classes, which in turn are derived from the same base class.
+Here the class result will have duplicate sets of members inherited from the class ‘student’,which intriduces ambiguity and should be avoided.
+This ambiguity due to multiple paths is avoided .
+This can be avoided by making common base class.
+Here only one copy of that class is inherited
+
+5)
+b.catch(Test t)
+
+    PART-B
+ 6)
+ #include <iostream>
+ class Cents
+{
+private:
+	int m_cents;
+ 
+public:
+	Cents(int cents) { m_cents = cents; }
+ 	friend Cents operator+(const Cents &c1, const Cents &c2);
+ 
+	int getCents() const { return m_cents; }
+};
+ Cents operator+(const Cents &c1, const Cents &c2)
+{
+	return Cents(c1.m_cents + c2.m_cents);
+}
+ 
+int main()
+{
+	Cents cents1(6);
+	Cents cents2(8);
+	Cents centsSum = cents1 + cents2;
+	std::cout << "I have " << centsSum.getCents() << " cents." << std::endl;
+ 
+	return 0;
+}
+ 
+ 7)
+When there are multiple functions with same name but different parameters then these functions are said to be overloaded. Functions can be overloaded by change in number of arguments or/and change in type of arguments.
+Rules of Function Overloading
+#include <bits/stdc++.h> 
+using namespace std; 
+class opps 
+{ 
+    public: 
+      
+    
+    void func(int x) 
+    { 
+        cout << "value of x is " << x << endl; 
+    } 
+    void func(double x) 
+    { 
+        cout << "value of x is " << x << endl; 
+    } 
+    void func(int x, int y) 
+    { 
+        cout << "value of x and y is " << x << ", " << y << endl; 
+    } 
+}; 
+  
+int main() { 
+      
+  opps obj1;
+    obj1.func(7); 
+    obj1.func(9.132); 
+    obj1.func(85,64); 
+    return 0; 
+}  
+ 
+ 9)
+ This type of polymorphism is achieved by Function Overriding.
+Function overriding on the other hand occurs when a derived class has a definition for one of the member functions of the base class. That base function is said to be overridden.
+program: 
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+class base 
+{ 
+public: 
+    virtual void print () 
+    { cout<< "print base class" <<endl; } 
+   
+    void show () 
+    { cout<< "show base class" <<endl; } 
+}; 
+   
+class derived:public base 
+{ 
+public: 
+    void print () 
+   
+    void show () 
+    { cout<< "show derived class" <<endl; } 
+}; 
+  
+int main()  
+{ 
+    base *bptr; 
+    derived d; 
+    bptr = &d; 
+    bptr->print();  
+    bptr->show();  
+    return 0; 
+}  
+
+10)
+#include<iostream.h>
+Void main()
+{
+Int num,den,result;
+Cout<<”Enter the numerator:\n”;
+Cin>>num;
+Cout<<”Enter the denominator:\n”;
+Cin>>den;
+Try:
+If(den==0)
+{
+Throw den;
+}
+Result=num/den;
+Cout<<”Result :”<<result;
+}
+Catch(int n);
+{
+Cout<<”Denominator cannot be”<<n;}
+}
+}
+
+
