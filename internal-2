@@ -15,6 +15,13 @@ This can be avoided by making common base class.
 Here only one copy of that class is inherited
 
 4)
+A pure virtual function is a function that must be overridden in a derived class and need not be defined.
+    A virtual function is declared to be “pure” using the curious =0 syntax.
+class Test
+{
+public:
+virtual void show()=0;
+};
 
 5)
 b.catch(Test t)
@@ -107,9 +114,42 @@ int main() {
     obj1.func(85,64); 
     return 0; 
 }  
- 
- 9)
- This type of polymorphism is achieved by Function Overriding.
+
+ 8)
+Base class constructors are always called in the derived class constructors. Whenever you create derived class object, 
+   first the base class default constructor is executed and then the derived class's constructor finishes execution.
+   1. Whether derived class's default constructor is called or parameterised is called, base class's default constructor is always
+      called inside them.
+   2. To call base class's parameterised constructor inside derived class's parameterised constructor, we must mention it explicitly
+      while declaring derived class's parameterized constructor.
+
+Program:
+  class Base
+  {
+    int x;
+    public:
+    Base(int i)
+     {
+        x = i;
+        cout << "Base Parameterized Constructor\n";
+      }
+  };
+  class Derived : public Base 
+  {
+    int y;
+    public:
+    Derived(int j):Base(j)
+    {
+       y = j;
+       cout << "Derived Parameterized Constructor\n";
+    }
+  };
+  int main()
+  {
+    Derived d(10);
+  }
+9)
+ Runtime overloading:This type of polymorphism is achieved by Function Overriding.
 Function overriding on the other hand occurs when a derived class has a definition for one of the member functions of the base class. That base function is said to be overridden.
 program: 
 #include <bits/stdc++.h> 
@@ -167,4 +207,49 @@ Cout<<”Denominator cannot be”<<n;}
 }
 }
 
+PART-C
+
+11)  #include <iostream>
+      using namespace std;
+      class base 
+{
+ 	public:
+ 	int x;
+ 	void getdata()
+ 	{
+    	cout << "Enter value of x= "; cin >> x;
+ 	}
+};
+        class derive1 : public base 
+{
+ 	public:
+ 	int y;
+ 	void readdata()
+ 	{
+ 	    cout << "\nEnter value of y= "; cin >> y;
+ 	}
+};
+        class derive2 : public derive1  
+{
+ 	private:
+ 	int z;
+ 	public:
+ 	void indata()
+ 	{
+    	cout << "\nEnter value of z= "; cin >> z;
+ 	}
+ 	void product()
+ 	{
+ 	    cout << "\nProduct= " << x * y * z;
+ 	}
+};
+       int main()
+{
+     derive2 a;      
+     a.getdata();
+     a.readdata();
+     a.indata();
+     a.product();
+     return 0;
+}   
 
